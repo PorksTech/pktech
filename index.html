@@ -1,1241 +1,2330 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5efdf">
-<meta name="description" content="PK Tech — Tecnologia, inovação e soluções digitais para transformar ideias em resultados.">
-<title>PK Tech | Tecnologia sem complicação</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-:root {
-  --bg: #f5efdf;
-  --surface: #fffdf7;
-  --black: #171714;
-  --gray: #77766e;
-  --yellow: #e9c95e;
-  --line: rgba(23,23,20,.13);
-  --radius: 22px;
-  --max: 1200px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--black);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-}
-
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; }
-
-.container {
-  width: min(var(--max), calc(100% - 64px));
-  margin: auto;
-}
-
-/* HEADER */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(245,239,223,.91);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
-}
-
-.navbar {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 27px;
-  font-weight: 700;
-  letter-spacing: -1.8px;
-}
-
-.logo .tech {
-  font-weight: 400;
-  margin-left: 5px;
-}
-
-.pig {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 12px;
-  top: -16px;
-  transform: rotate(-45deg);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 13px;
-  font-weight: 600;
-  color: #55544e;
-  transition: .25s;
-}
-
-.nav-links a:hover { color: var(--black); }
-
-.nav-cta, .primary-btn {
-  background: var(--black);
-  color: white;
-  border: none;
-  padding: 14px 22px;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: .25s;
-}
-
-.nav-cta:hover, .primary-btn:hover {
-  background: #393831;
-  transform: translateY(-2px);
-}
-
-.menu-btn {
-  display: none;
-  border: 0;
-  background: none;
-  font-size: 26px;
-}
-
-/* HERO */
-
-.hero {
-  min-height: 680px;
-  padding: 100px 0 90px;
-  display: flex;
-  align-items: center;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #77746b;
-  margin-bottom: 28px;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 23px;
-  height: 2px;
-  background: var(--yellow);
-}
-
-.hero h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(48px, 6.5vw, 83px);
-  line-height: .99;
-  letter-spacing: -5px;
-  font-weight: 600;
-  max-width: 700px;
-}
-
-.hero h1 span {
-  color: #a38b43;
-}
-
-.hero-description {
-  margin-top: 28px;
-  max-width: 475px;
-  color: var(--gray);
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 13px;
-  margin-top: 35px;
-  flex-wrap: wrap;
-}
-
-.secondary-btn {
-  padding: 14px 22px;
-  border: 1px solid var(--line);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: .25s;
-}
-
-.secondary-btn:hover {
-  background: var(--surface);
-  transform: translateY(-2px);
-}
-
-.hero-note {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 50px;
-  font-size: 12px;
-  color: var(--gray);
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  background: #7d9b67;
-  border-radius: 50%;
-  box-shadow: 0 0 0 5px rgba(125,155,103,.13);
-}
-
-/* HERO VISUAL */
-
-.hero-visual {
-  min-height: 420px;
-  background: #e9dfc7;
-  border-radius: 30px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.visual-circle {
-  width: 300px;
-  height: 300px;
-  border: 1px solid rgba(23,23,20,.17);
-  border-radius: 50%;
-  position: absolute;
-}
-
-.visual-circle::before,
-.visual-circle::after {
-  content: "";
-  position: absolute;
-  border: 1px solid rgba(23,23,20,.13);
-  border-radius: 50%;
-}
-
-.visual-circle::before { inset: 28px; }
-.visual-circle::after { inset: 58px; }
-
-.visual-brand {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: -5px;
-  z-index: 2;
-  position: relative;
-}
-
-.visual-brand small {
-  display: block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-align: center;
-  margin-top: 8px;
-  font-weight: 700;
-}
-
-.visual-tag {
-  position: absolute;
-  background: var(--surface);
-  padding: 12px 17px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 700;
-  box-shadow: 0 8px 30px rgba(0,0,0,.06);
-}
-
-.tag-one { top: 55px; right: 25px; }
-.tag-two { bottom: 65px; left: 22px; }
-.tag-three { bottom: 35px; right: 25px; }
-
-/* STRIP */
-
-.strip {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 26px 0;
-}
-
-.strip-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.strip-label {
-  color: var(--gray);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.strip-item {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-/* SECTIONS */
-
-section.content-section {
-  padding: 115px 0;
-}
-
-.section-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 30px;
-  margin-bottom: 55px;
-}
-
-.section-heading h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(36px, 4.5vw, 56px);
-  letter-spacing: -2.5px;
-  line-height: 1.05;
-  max-width: 570px;
-}
-
-.section-heading p {
-  max-width: 340px;
-  color: var(--gray);
-  line-height: 1.7;
-  font-size: 14px;
-}
-
-/* SOLUTIONS */
-
-.solutions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.solution-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 32px;
-  min-height: 270px;
-  border-radius: var(--radius);
-  transition: .3s;
-  display: flex;
-  flex-direction: column;
-}
-
-.solution-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 18px 45px rgba(30,25,10,.07);
-}
-
-.card-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--bg);
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 21px;
-  margin-bottom: 35px;
-}
-
-.solution-card h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 21px;
-  margin-bottom: 12px;
-}
-
-.solution-card p {
-  color: var(--gray);
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-/* ABOUT */
-
-.about {
-  background: var(--black);
-  color: white;
-  padding: 100px 0;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 100px;
-  align-items: center;
-}
-
-.about .eyebrow { color: #c9c4b5; }
-
-.about h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(38px, 4.5vw, 57px);
-  letter-spacing: -2.5px;
-  line-height: 1.06;
-}
-
-.about h2 span { color: var(--yellow); }
-
-.about-copy {
-  color: #b9b8af;
-  font-size: 15px;
-  line-height: 1.9;
-  margin-top: 25px;
-}
-
-.about-points {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
-
-.about-point {
-  border-top: 1px solid #41413a;
-  padding-top: 20px;
-}
-
-.about-point strong {
-  display: block;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.about-point p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #aaa99f;
-}
-
-/* PROCESS */
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line);
-}
-
-.process-item {
-  padding: 28px 22px 15px 0;
-  border-right: 1px solid var(--line);
-}
-
-.process-item:not(:first-child) { padding-left: 22px; }
-
-.process-item:last-child { border-right: 0; }
-
-.process-number {
-  font-size: 12px;
-  color: #9b8546;
-  font-weight: 800;
-  margin-bottom: 45px;
-}
-
-.process-item h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.process-item p {
-  font-size: 12px;
-  color: var(--gray);
-  line-height: 1.8;
-}
-
-/* FAQ */
-
-.faq-section {
-  background: #eee7d6;
-}
-
-.faq-grid {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 80px;
-}
-
-.faq-grid h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 46px;
-  letter-spacing: -2px;
-  line-height: 1.1;
-}
-
-.faq-list { border-top: 1px solid var(--line); }
-
-.faq-item { border-bottom: 1px solid var(--line); }
-
-.faq-question {
-  width: 100%;
-  padding: 23px 0;
-  border: 0;
-  background: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--black);
-}
-
-.faq-question span:last-child {
-  font-size: 22px;
-  transition: .25s;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  color: var(--gray);
-  font-size: 13px;
-  line-height: 1.8;
-  transition: max-height .35s, padding .35s;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 160px;
-  padding-bottom: 22px;
-}
-
-.faq-item.active .faq-question span:last-child {
-  transform: rotate(45deg);
-}
-
-/* CONTACT */
-
-.contact {
-  padding: 110px 0;
-}
-
-.contact-box {
-  background: var(--yellow);
-  padding: 75px;
-  border-radius: 30px;
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-  gap: 65px;
-  align-items: center;
-}
-
-.contact h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(40px, 5vw, 65px);
-  letter-spacing: -3px;
-  line-height: 1;
-}
-
-.contact-copy {
-  margin-top: 22px;
-  font-size: 14px;
-  line-height: 1.8;
-  max-width: 410px;
-  color: #514a35;
-}
-
-.contact-form {
-  background: var(--surface);
-  padding: 30px;
-  border-radius: 20px;
-}
-
-.contact-form label {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  margin: 15px 0 8px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  outline: none;
-  background: #fff;
-  font-family: inherit;
-  font-size: 13px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #aa9144;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 90px;
-}
-
-.contact-form button {
-  margin-top: 18px;
-  width: 100%;
-  padding: 15px;
-  background: var(--black);
-  color: white;
-  border: 0;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 13px;
-}
-
-.form-message {
-  margin-top: 12px;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-/* FOOTER */
-
-footer {
-  background: var(--black);
-  color: white;
-  padding: 55px 0 25px;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 30px;
-  padding-bottom: 50px;
-}
-
-.footer-brand p {
-  font-size: 12px;
-  color: #aaa99f;
-  margin-top: 14px;
-}
-
-footer .logo { color: white; }
-
-.footer-links {
-  display: flex;
-  gap: 30px;
-  font-size: 12px;
-  color: #bdbbb2;
-}
-
-.footer-bottom {
-  border-top: 1px solid #3b3b35;
-  padding-top: 22px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: #88877f;
-}
-
-/* ANIMATION */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s, transform .7s;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width: 850px) {
-  .container { width: calc(100% - 40px); }
-
-  .hero-grid,
-  .about-grid,
-  .faq-grid,
-  .contact-box {
-    grid-template-columns: 1fr;
-  }
-
-  .hero { padding: 75px 0; }
-  .hero-visual { min-height: 350px; }
-  .solutions-grid { grid-template-columns: 1fr 1fr; }
-  .process-grid { grid-template-columns: 1fr 1fr; }
-  .process-item:nth-child(2) { border-right: 0; }
-  .about-grid { gap: 50px; }
-  .contact-box { padding: 45px 30px; gap: 35px; }
-  .section-heading { align-items: start; flex-direction: column; }
-}
-
-@media(max-width: 600px) {
-  .navbar { height: 70px; }
-
-  .menu-btn { display: block; }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: var(--bg);
-    padding: 25px 25px 30px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 22px;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .nav-links.open { display: flex; }
-
-  .nav-links a { font-size: 15px; }
-  .nav-cta { text-align: center; }
-
-  .hero h1 {
-    font-size: 52px;
-    letter-spacing: -3px;
-  }
-
-  .hero-visual { min-height: 310px; }
-  .visual-circle { width: 240px; height: 240px; }
-  .visual-brand { font-size: 48px; }
-
-  .solutions-grid { grid-template-columns: 1fr; }
-  .solution-card { min-height: 220px; }
-  .about-points { grid-template-columns: 1fr 1fr; }
-  .process-grid { grid-template-columns: 1fr 1fr; }
-  .process-item { padding: 22px 12px 20px 0; }
-  .process-item:not(:first-child) { padding-left: 12px; }
-  .process-item:nth-child(2) { border-right: 0; }
-  .faq-grid { gap: 35px; }
-  .contact-box { padding: 35px 20px; }
-  .contact-form { padding: 22px; }
-
-  .footer-top,
-  .footer-bottom {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .footer-links { flex-wrap: wrap; gap: 18px; }
-  section.content-section { padding: 80px 0; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080D18">
+  <meta name="description" content="PK Tech — Desenvolvimento digital, automação, inteligência artificial e soluções tecnológicas.">
+  <meta name="color-scheme" content="dark">
+
+  <title>PK Tech | Tecnologia, Engenharia e Inovação</title>
+
+  <!-- ==================================================
+       CONFIGURAÇÃO DE IDENTIDADE VISUAL
+       Insira as URLs das imagens nos campos abaixo.
+  =================================================== -->
+
+  <link rel="icon" type="image/png" href="">
+
+  <link rel="apple-touch-icon" href="">
+
+  <meta property="og:title" content="PK Tech | Tecnologia e Inovação">
+  <meta property="og:description" content="Transformamos desafios em soluções digitais.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    /* ==================================================
+       01. DESIGN SYSTEM
+    =================================================== */
+
+    :root {
+      --bg: #080D18;
+      --bg-secondary: #0B1220;
+      --surface: #101A2B;
+      --surface-light: #142238;
+      --surface-hover: #192B43;
+
+      --white: #F3F7FF;
+      --text: #D5DEEC;
+      --muted: #8291A8;
+
+      --blue: #3478F6;
+      --blue-light: #5796FF;
+      --cyan: #25D9F2;
+      --violet: #8765FF;
+
+      --line: rgba(153, 181, 221, .13);
+      --line-strong: rgba(153, 181, 221, .24);
+
+      --gradient: linear-gradient(115deg, #3478F6 0%, #25D9F2 100%);
+      --gradient-dark: linear-gradient(135deg, #101D34, #0A1120);
+
+      --radius: 18px;
+      --radius-lg: 26px;
+
+      --max: 1220px;
+
+      --font-main: 'DM Sans', sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+
+      --shadow: 0 20px 70px rgba(0, 0, 0, .25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-main);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::selection {
+      background: var(--blue);
+      color: white;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 115px 0;
+      position: relative;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 23px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: var(--cyan);
+    }
+
+    .section-heading {
+      max-width: 670px;
+      margin-bottom: 55px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 57px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      font-weight: 600;
+    }
+
+    .section-heading p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+      max-width: 540px;
+    }
+
+    /* ==================================================
+       02. BUTTONS
+    =================================================== */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 23px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--blue);
+      box-shadow: 0 8px 30px rgba(52, 120, 246, .18);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(52, 120, 246, .3);
+    }
+
+    .btn-outline {
+      border-color: var(--line-strong);
+      color: var(--text);
+      background: rgba(255,255,255,.02);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      transform: translateY(-3px);
+    }
+
+    .arrow {
+      font-size: 17px;
+      transition: transform .25s;
+    }
+
+    .btn:hover .arrow {
+      transform: translate(3px, -2px);
+    }
+
+    /* ==================================================
+       03. HEADER
+    =================================================== */
+
+    .header {
+      height: 82px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 13, 24, .88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 150px;
+    }
+
+    .brand img {
+      max-width: 175px;
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-fallback {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+    }
+
+    .brand-fallback span {
+      color: var(--cyan);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-actions .btn {
+      padding: 12px 18px;
+      font-size: 12px;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 25px;
+      padding: 8px;
+    }
+
+    /* ==================================================
+       04. HERO
+    =================================================== */
+
+    .hero {
+      min-height: 700px;
+      padding: 100px 0 110px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 45%, rgba(40, 104, 225, .13), transparent 42%),
+        radial-gradient(ellipse at 15% 15%, rgba(37, 217, 242, .045), transparent 40%),
+        var(--bg);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .16;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(110, 153, 210, .12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110, 153, 210, .12) 1px, transparent 1px);
+      background-size: 65px 65px;
+      mask-image: linear-gradient(to right, transparent, black, transparent);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(49px, 6.3vw, 79px);
+      line-height: 1.02;
+      letter-spacing: -4.5px;
+      font-weight: 600;
+      max-width: 720px;
+    }
+
+    .hero-description {
+      max-width: 510px;
+      margin-top: 27px;
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 36px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 43px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .4px;
+    }
+
+    .meta-line {
+      height: 1px;
+      width: 32px;
+      background: var(--cyan);
+    }
+
+    /* HERO GRAPHIC */
+
+    .hero-graphic {
+      min-height: 470px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .graphic-grid {
+      position: absolute;
+      inset: 15px;
+      background-image:
+        linear-gradient(rgba(94, 139, 206, .09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(94, 139, 206, .09) 1px, transparent 1px);
+      background-size: 34px 34px;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      mask-image: radial-gradient(ellipse, black 25%, transparent 90%);
+    }
+
+    .orbit {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(66, 151, 255, .3);
+      border-radius: 50%;
+      transform: rotate(-25deg) scaleY(.65);
+    }
+
+    .orbit-two {
+      width: 430px;
+      height: 430px;
+      border-color: rgba(37, 217, 242, .18);
+      transform: rotate(35deg) scaleY(.65);
+    }
+
+    .orbit-three {
+      width: 255px;
+      height: 255px;
+      border-color: rgba(135, 101, 255, .3);
+      transform: rotate(70deg) scaleY(.65);
+    }
+
+    .core {
+      position: relative;
+      z-index: 3;
+      width: 190px;
+      height: 190px;
+      border-radius: 32px;
+      background: linear-gradient(145deg, #172C4A, #0C1729);
+      border: 1px solid rgba(91, 166, 255, .4);
+      box-shadow:
+        0 0 80px rgba(52, 120, 246, .2),
+        inset 0 0 40px rgba(37, 217, 242, .07);
+      display: grid;
+      place-items: center;
+      transform: rotate(-8deg);
+    }
+
+    .core-content {
+      transform: rotate(8deg);
+      text-align: center;
+    }
+
+    .core-content img {
+      width: 105px;
+      max-height: 90px;
+      object-fit: contain;
+      margin: auto;
+    }
+
+    .core-content .brand-fallback {
+      font-size: 40px;
+    }
+
+    .core-content small {
+      display: block;
+      color: var(--cyan);
+      font-size: 8px;
+      letter-spacing: 3px;
+      font-weight: 800;
+      margin-top: 12px;
+    }
+
+    .tech-node {
+      position: absolute;
+      z-index: 4;
+      padding: 12px 16px;
+      background: rgba(16, 26, 43, .95);
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .node-icon {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .node-one { top: 68px; right: 0; }
+    .node-two { bottom: 90px; left: 0; }
+    .node-three { bottom: 30px; right: 20px; }
+
+    .graphic-coordinate {
+      position: absolute;
+      color: #60728C;
+      font-family: monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .coordinate-one { top: 25px; left: 25px; }
+    .coordinate-two { bottom: 25px; left: 25px; }
+
+    /* ==================================================
+       05. CAPABILITIES STRIP
+    =================================================== */
+
+    .capabilities {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 27px 0;
+    }
+
+    .capabilities-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .capabilities-label {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1.7px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .capability {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .capability span {
+      color: var(--cyan);
+      font-size: 16px;
+    }
+
+    /* ==================================================
+       06. SOLUTIONS
+    =================================================== */
+
+    .solutions {
+      background: var(--bg);
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .solution-card {
+      position: relative;
+      padding: 32px;
+      min-height: 285px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: .3s ease;
+    }
+
+    .solution-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -60px;
+      bottom: -60px;
+      border-radius: 50%;
+      background: var(--blue);
+      filter: blur(70px);
+      opacity: 0;
+      transition: .35s;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(37, 217, 242, .35);
+      background: var(--surface-light);
+    }
+
+    .solution-card:hover::after {
+      opacity: .18;
+    }
+
+    .solution-icon {
+      width: 49px;
+      height: 49px;
+      border: 1px solid rgba(37, 217, 242, .2);
+      background: rgba(37, 217, 242, .07);
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: var(--cyan);
+      font-size: 22px;
+      margin-bottom: 32px;
+    }
+
+    .solution-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: 13px;
+      font-weight: 600;
+    }
+
+    .solution-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 310px;
+    }
+
+    .solution-index {
+      position: absolute;
+      right: 25px;
+      top: 28px;
+      color: #40536D;
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    /* ==================================================
+       07. INSTITUTIONAL
+    =================================================== */
+
+    .institutional {
+      background:
+        radial-gradient(ellipse at 85% 50%, rgba(52, 120, 246, .12), transparent 45%),
+        var(--bg-secondary);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .institutional-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .institutional h2 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4.5vw, 59px);
+      letter-spacing: -2.8px;
+      line-height: 1.08;
+    }
+
+    .institutional-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.95;
+      margin-top: 25px;
+    }
+
+    .institutional-grid-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .value-card {
+      min-height: 165px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      background: rgba(16, 26, 43, .7);
+      border-radius: 14px;
+      transition: .25s;
+    }
+
+    .value-card:hover {
+      border-color: rgba(37, 217, 242, .4);
+      transform: translateY(-4px);
+    }
+
+    .value-number {
+      font-family: monospace;
+      color: var(--cyan);
+      font-size: 11px;
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      margin-bottom: 9px;
+    }
+
+    .value-card p {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ==================================================
+       08. PROCESS
+    =================================================== */
+
+    .process {
+      background: var(--bg);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .process-item {
+      padding: 30px 25px 20px 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .process-item:not(:first-child) {
+      padding-left: 25px;
+    }
+
+    .process-item:last-child {
+      border-right: none;
+    }
+
+    .process-number {
+      color: var(--cyan);
+      font-family: monospace;
+      font-size: 12px;
+      margin-bottom: 48px;
+    }
+
+    .process-item h3 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      margin-bottom: 13px;
+    }
+
+    .process-item p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    /* ==================================================
+       09. FAQ
+    =================================================== */
+
+    .faq {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 100px;
+    }
+
+    .faq-heading h2 {
+      font-family: var(--font-display);
+      font-size: clamp(37px, 4vw, 50px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+    }
+
+    .faq-heading p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .faq-list {
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      background: transparent;
+      border: none;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      gap: 20px;
+    }
+
+    .faq-plus {
+      color: var(--cyan);
+      font-size: 22px;
+      font-weight: 400;
+      transition: transform .25s;
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .faq-item.active .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-item.active .faq-answer-inner {
+      padding-bottom: 22px;
+    }
+
+    .faq-item.active .faq-plus {
+      transform: rotate(45deg);
+    }
+
+    /* ==================================================
+       10. CONTACT
+    =================================================== */
+
+    .contact {
+      background:
+        radial-gradient(ellipse at 10% 50%, rgba(52, 120, 246, .13), transparent 45%),
+        var(--bg);
+    }
+
+    .contact-box {
+      position: relative;
+      padding: 70px;
+      border: 1px solid rgba(65, 142, 255, .3);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, #11213B, #0D192B);
+      display: grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 75px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .contact-box::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      right: -180px;
+      top: -230px;
+      border: 1px solid rgba(37, 217, 242, .15);
+      border-radius: 50%;
+      box-shadow: 0 0 0 40px rgba(37, 217, 242, .025),
+                  0 0 0 80px rgba(37, 217, 242, .02);
+      pointer-events: none;
+    }
+
+    .contact h2 {
+      font-family: var(--font-display);
+      font-size: clamp(39px, 5vw, 61px);
+      letter-spacing: -3px;
+      line-height: 1.05;
+      max-width: 490px;
+    }
+
+    .contact-copy {
+      margin-top: 24px;
+      max-width: 410px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      margin-top: 35px;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info strong {
+      color: var(--cyan);
+    }
+
+    .contact-form {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      background: #0B1423;
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 17px 0 9px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      background: #111F32;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 13px;
+      color: white;
+      outline: none;
+      font-family: var(--font-main);
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #60728B;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(37, 217, 242, .07);
+    }
+
+    .contact-form select option {
+      background: #111F32;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 105px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      margin-top: 20px;
+      border: none;
+    }
+
+    .form-message {
+      font-size: 11px;
+      line-height: 1.7;
+      color: var(--cyan);
+      margin-top: 13px;
+      min-height: 18px;
+    }
+
+    /* ==================================================
+       11. FOOTER
+    =================================================== */
+
+    .footer {
+      background: #060A12;
+      border-top: 1px solid var(--line);
+      padding: 65px 0 25px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      padding-bottom: 55px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 17px;
+      max-width: 280px;
+      line-height: 1.8;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+    }
+
+    .footer-column h4 {
+      font-family: var(--font-display);
+      font-size: 12px;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .footer-column a {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 14px;
+      transition: .2s;
+    }
+
+    .footer-column a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 23px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #66748A;
+      font-size: 10px;
+    }
+
+    .footer-bottom span:last-child {
+      color: #8291A8;
+    }
+
+    /* ==================================================
+       12. ANIMATIONS
+    =================================================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+    .delay-3 { transition-delay: .3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .node-one { animation: float 5s ease-in-out infinite; }
+    .node-two { animation: float 6s ease-in-out infinite 1s; }
+    .node-three { animation: float 5.5s ease-in-out infinite 2s; }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .orbit-three {
+      animation: rotate 45s linear infinite;
+    }
+
+    /* ==================================================
+       13. RESPONSIVE
+    =================================================== */
+
+    @media(max-width: 1050px) {
+      .container {
+        width: calc(100% - 48px);
+      }
+
+      .hero-grid {
+        gap: 30px;
+      }
+
+      .institutional-grid {
+        gap: 55px;
+      }
+
+      .contact-box {
+        padding: 48px;
+        gap: 35px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 850px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        padding: 25px 30px 30px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #0B1423;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 15px 0;
+        font-size: 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-actions {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .institutional-grid,
+      .faq-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      .hero-grid {
+        gap: 20px;
+      }
+
+      .hero-graphic {
+        min-height: 420px;
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .institutional-grid {
+        gap: 45px;
+      }
+
+      .faq-grid {
+        gap: 45px;
+      }
+
+      .contact-box {
+        gap: 40px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .process-item:nth-child(3) {
+        padding-left: 0;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .container {
+        width: calc(100% - 38px);
+      }
+
+      .header {
+        height: 72px;
+      }
+
+      .nav-links {
+        top: 72px;
+      }
+
+      .brand img {
+        max-width: 135px;
+        max-height: 40px;
+      }
+
+      .brand-fallback {
+        font-size: 23px;
+      }
+
+      .nav-actions .btn {
+        padding: 11px 13px;
+        font-size: 10px;
+      }
+
+      .hero {
+        padding: 75px 0 55px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: clamp(46px, 12vw, 61px);
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-graphic {
+        min-height: 340px;
+        margin-top: 15px;
+      }
+
+      .orbit {
+        width: 245px;
+        height: 245px;
+      }
+
+      .orbit-two {
+        width: 310px;
+        height: 310px;
+      }
+
+      .orbit-three {
+        width: 210px;
+        height: 210px;
+      }
+
+      .core {
+        width: 145px;
+        height: 145px;
+      }
+
+      .core-content img {
+        width: 80px;
+      }
+
+      .core-content .brand-fallback {
+        font-size: 32px;
+      }
+
+      .tech-node {
+        padding: 9px 11px;
+        font-size: 9px;
+      }
+
+      .node-one { top: 35px; right: 0; }
+      .node-two { bottom: 50px; left: 0; }
+      .node-three { bottom: 10px; right: 0; }
+
+      .capabilities-inner {
+        justify-content: flex-start;
+        gap: 18px 25px;
+      }
+
+      .capabilities-label {
+        width: 100%;
+      }
+
+      .capability {
+        font-size: 11px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 38px;
+      }
+
+      .section-heading h2 {
+        font-size: 39px;
+        letter-spacing: -2px;
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .solution-card {
+        min-height: 235px;
+        padding: 27px;
+      }
+
+      .institutional h2 {
+        font-size: 43px;
+      }
+
+      .institutional-grid-right {
+        gap: 10px;
+      }
+
+      .value-card {
+        padding: 19px;
+        min-height: 160px;
+      }
+
+      .value-card h3 {
+        font-size: 15px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-item {
+        padding: 22px 12px 24px 0;
+      }
+
+      .process-item:not(:first-child) {
+        padding-left: 12px;
+      }
+
+      .process-item:nth-child(odd) {
+        padding-left: 0;
+      }
+
+      .process-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .process-number {
+        margin-bottom: 30px;
+        font-size: 10px;
+      }
+
+      .process-item h3 {
+        font-size: 17px;
+      }
+
+      .faq-heading h2 {
+        font-size: 39px;
+      }
+
+      .contact-box {
+        padding: 34px 20px;
+        gap: 35px;
+      }
+
+      .contact h2 {
+        font-size: 43px;
+        letter-spacing: -2px;
+      }
+
+      .contact-form {
+        padding: 22px 17px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .footer-nav {
+        gap: 35px;
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container navbar">
+  <!-- ==================================================
+       CONFIGURAÇÃO DE LOGOS
+       Preencha os endereços no JavaScript, no final.
+  =================================================== -->
 
-    <a href="#inicio" class="logo" aria-label="PK Tech início">
-      PK<span class="tech">TECH</span>
+  <!-- HEADER -->
 
-      <!-- Símbolo do porco -->
-      <svg class="pig" viewBox="0 0 100 100" fill="none"
-           xmlns="http://www.w3.org/2000/svg">
-        <path d="M23 35L16 12L42 25C52 21 68 23 78 33L91 27L87 51C93 69 80 88 54 91C28 94 9 76 13 56C14 48 17 41 23 35Z"
-              fill="#171714"/>
-        <ellipse cx="51" cy="62" rx="25" ry="17" fill="#f5efdf"/>
-        <ellipse cx="43" cy="61" rx="3" ry="5" fill="#171714"/>
-        <ellipse cx="59" cy="61" rx="3" ry="5" fill="#171714"/>
-        <circle cx="39" cy="43" r="3.5" fill="#f5efdf"/>
-        <circle cx="68" cy="43" r="3.5" fill="#f5efdf"/>
-      </svg>
-    </a>
+  <header class="header">
+    <div class="container navbar">
 
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      <a href="#inicio" class="brand" aria-label="PK Tech - Início">
+        <img id="headerLogo" src="" alt="PK Tech" hidden>
+        <span class="brand-fallback" id="headerFallback">
+          PK<span>TECH</span>
+        </span>
+      </a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#inicio">Início</a>
-      <a href="#solucoes">Soluções</a>
-      <a href="#sobre">Sobre nós</a>
-      <a href="#processo">Como trabalhamos</a>
-      <a href="#contato" class="nav-cta">Fale com a PK Tech ↗</a>
-    </nav>
+      <nav aria-label="Navegação principal">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#processo">Metodologia</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
 
-  </div>
-</header>
-
-<main>
-
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="container hero-grid">
-
-    <div class="reveal">
-      <div class="eyebrow">Tecnologia em movimento</div>
-
-      <h1>
-        Ideias que viram
-        <span>soluções.</span>
-      </h1>
-
-      <p class="hero-description">
-        A tecnologia não precisa ser complicada.
-        Desenvolvemos soluções digitais para transformar
-        processos, simplificar tarefas e impulsionar negócios.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contato" class="primary-btn">
-          Vamos conversar ↗
+      <div class="nav-actions">
+        <a href="#contato" class="btn btn-primary">
+          Fale conosco <span class="arrow">↗</span>
         </a>
-        <a href="#solucoes" class="secondary-btn">
-          Conheça nossas soluções
-        </a>
-      </div>
 
-      <div class="hero-note">
-        <span class="status-dot"></span>
-        Tecnologia, estratégia e inovação.
-      </div>
-    </div>
-
-    <div class="hero-visual reveal">
-      <div class="visual-circle"></div>
-
-      <div class="visual-brand">
-        PK<span style="font-weight:400">TECH</span>
-        <small>TECNOLOGIA & INOVAÇÃO</small>
-      </div>
-
-      <div class="visual-tag tag-one">01 / DIGITAL</div>
-      <div class="visual-tag tag-two">Ideias em movimento.</div>
-      <div class="visual-tag tag-three">02 / INOVAÇÃO</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ÁREAS -->
-<div class="strip">
-  <div class="container strip-content">
-    <span class="strip-label">Nosso universo</span>
-    <span class="strip-item">Tecnologia.</span>
-    <span class="strip-item">Desenvolvimento.</span>
-    <span class="strip-item">Automação.</span>
-    <span class="strip-item">Inovação.</span>
-  </div>
-</div>
-
-<!-- SOLUÇÕES -->
-<section class="content-section" id="solucoes">
-  <div class="container">
-
-    <div class="section-heading reveal">
-      <div>
-        <div class="eyebrow">O que fazemos</div>
-        <h2>Tecnologia pensada para resolver.</h2>
-      </div>
-
-      <p>
-        Cada projeto começa com um problema.
-        Nosso objetivo é encontrar a solução mais inteligente
-        para cada necessidade.
-      </p>
-    </div>
-
-    <div class="solutions-grid">
-
-      <article class="solution-card reveal">
-        <div class="card-icon">⌘</div>
-        <h3>Desenvolvimento digital</h3>
-        <p>
-          Sites, plataformas e experiências digitais
-          desenvolvidas para atender necessidades reais.
-        </p>
-      </article>
-
-      <article class="solution-card reveal">
-        <div class="card-icon">↗</div>
-        <h3>Automação</h3>
-        <p>
-          Processos mais inteligentes, tarefas simplificadas
-          e melhor aproveitamento do tempo.
-        </p>
-      </article>
-
-      <article class="solution-card reveal">
-        <div class="card-icon">✳</div>
-        <h3>Inteligência artificial</h3>
-        <p>
-          Aplicações de IA para otimizar operações,
-          organizar informações e criar novas possibilidades.
-        </p>
-      </article>
-
-      <article class="solution-card reveal">
-        <div class="card-icon">▦</div>
-        <h3>Sistemas e plataformas</h3>
-        <p>
-          Ferramentas digitais estruturadas para
-          organizar informações e melhorar operações.
-        </p>
-      </article>
-
-      <article class="solution-card reveal">
-        <div class="card-icon">◎</div>
-        <h3>Consultoria tecnológica</h3>
-        <p>
-          Identificação de oportunidades e direcionamento
-          tecnológico para projetos e negócios.
-        </p>
-      </article>
-
-      <article class="solution-card reveal">
-        <div class="card-icon">⌁</div>
-        <h3>Soluções sob medida</h3>
-        <p>
-          Projetos personalizados, construídos de acordo
-          com os objetivos de cada cliente.
-        </p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section class="about" id="sobre">
-  <div class="container about-grid">
-
-    <div class="reveal">
-      <div class="eyebrow">Quem somos</div>
-
-      <h2>
-        Não é sobre acompanhar o futuro.
-        <span>É sobre construí-lo.</span>
-      </h2>
-
-      <p class="about-copy">
-        A PK Tech nasce com uma proposta simples:
-        aproximar pessoas e negócios das possibilidades
-        que a tecnologia oferece. Unimos pensamento
-        estratégico, criatividade e desenvolvimento para
-        criar soluções que façam sentido.
-      </p>
-    </div>
-
-    <div class="about-points reveal">
-
-      <div class="about-point">
-        <strong>01. Eficiência</strong>
-        <p>Menos complexidade, mais funcionalidade e melhores processos.</p>
-      </div>
-
-      <div class="about-point">
-        <strong>02. Inovação</strong>
-        <p>Novas ideias aplicadas a problemas concretos.</p>
-      </div>
-
-      <div class="about-point">
-        <strong>03. Estratégia</strong>
-        <p>Tecnologia orientada por objetivos e necessidades reais.</p>
-      </div>
-
-      <div class="about-point">
-        <strong>04. Evolução</strong>
-        <p>Soluções preparadas para acompanhar novas demandas.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- PROCESSO -->
-<section class="content-section" id="processo">
-  <div class="container">
-
-    <div class="section-heading reveal">
-      <div>
-        <div class="eyebrow">Nosso método</div>
-        <h2>Do problema à solução.</h2>
-      </div>
-
-      <p>
-        Um processo organizado, transparente e orientado
-        à entrega de resultados.
-      </p>
-    </div>
-
-    <div class="process-grid">
-
-      <div class="process-item reveal">
-        <div class="process-number">01 / ENTENDER</div>
-        <h3>Diagnóstico</h3>
-        <p>Conhecemos sua necessidade, seus objetivos e os desafios envolvidos.</p>
-      </div>
-
-      <div class="process-item reveal">
-        <div class="process-number">02 / PLANEJAR</div>
-        <h3>Estratégia</h3>
-        <p>Definimos a abordagem, as ferramentas e o caminho mais adequado.</p>
-      </div>
-
-      <div class="process-item reveal">
-        <div class="process-number">03 / DESENVOLVER</div>
-        <h3>Execução</h3>
-        <p>Transformamos o planejamento em uma solução digital funcional.</p>
-      </div>
-
-      <div class="process-item reveal">
-        <div class="process-number">04 / EVOLUIR</div>
-        <h3>Aprimoramento</h3>
-        <p>Avaliamos a entrega e identificamos oportunidades de evolução.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="content-section faq-section">
-  <div class="container faq-grid">
-
-    <div class="reveal">
-      <div class="eyebrow">Dúvidas frequentes</div>
-      <h2>O que você precisa saber.</h2>
-    </div>
-
-    <div class="faq-list reveal">
-
-      <div class="faq-item">
-        <button class="faq-question">
-          A PK Tech atende empresas e pessoas físicas?
-          <span>+</span>
+        <button class="menu-btn" id="menuBtn"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="navLinks">
+          ☰
         </button>
-        <div class="faq-answer">
-          Sim. Podemos avaliar projetos de empresas,
-          profissionais e pessoas que necessitem de soluções digitais.
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">Technology · Digital Solutions</div>
+
+          <h1>
+            Tecnologia que transforma
+            <span class="gradient-text">possibilidades.</span>
+          </h1>
+
+          <p class="hero-description">
+            Desenvolvemos soluções digitais, sistemas e aplicações
+            tecnológicas para transformar ideias em ferramentas
+            funcionais, eficientes e preparadas para o futuro.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">
+              Iniciar um projeto <span class="arrow">↗</span>
+            </a>
+
+            <a href="#solucoes" class="btn btn-outline">
+              Explorar soluções
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="meta-line"></span>
+            Engenharia digital. Estratégia. Inovação.
+          </div>
+
+        </div>
+
+        <!-- ELEMENTO VISUAL TECNOLÓGICO -->
+
+        <div class="hero-graphic reveal delay-2">
+
+          <div class="graphic-grid"></div>
+
+          <div class="graphic-coordinate coordinate-one">
+            PK_SYSTEM / 001
+          </div>
+
+          <div class="graphic-coordinate coordinate-two">
+            DIGITAL_ENGINEERING
+          </div>
+
+          <div class="orbit"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+
+          <div class="core">
+            <div class="core-content">
+
+              <img id="heroLogo" src="" alt="PK Tech" hidden>
+
+              <span class="brand-fallback" id="heroFallback">
+                PK<span>TECH</span>
+              </span>
+
+              <small>TECHNOLOGY</small>
+
+            </div>
+          </div>
+
+          <div class="tech-node node-one">
+            <span class="node-icon"></span>
+            DIGITAL SYSTEMS
+          </div>
+
+          <div class="tech-node node-two">
+            <span class="node-icon"></span>
+            AUTOMATION
+          </div>
+
+          <div class="tech-node node-three">
+            <span class="node-icon"></span>
+            INNOVATION
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+
+    <div class="capabilities">
+      <div class="container capabilities-inner">
+
+        <span class="capabilities-label">Áreas de atuação</span>
+
+        <div class="capability"><span>⌘</span> Desenvolvimento</div>
+        <div class="capability"><span>↗</span> Automação</div>
+        <div class="capability"><span>✳</span> Inteligência Artificial</div>
+        <div class="capability"><span>⌬</span> Sistemas Digitais</div>
+
+      </div>
+    </div>
+
+    <!-- SOLUÇÕES -->
+
+    <section class="section solutions" id="solucoes">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">01 / Nossas soluções</div>
+
+          <h2>
+            Tecnologia aplicada a
+            <span class="gradient-text">desafios reais.</span>
+          </h2>
+
+          <p>
+            Desenvolvemos projetos que conectam tecnologia,
+            funcionalidade e estratégia. Cada solução é pensada
+            de acordo com o problema que precisa resolver.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+
+          <article class="solution-card reveal">
+            <span class="solution-index">01</span>
+            <div class="solution-icon">⌘</div>
+            <h3>Desenvolvimento Web</h3>
+            <p>
+              Sites institucionais, páginas comerciais e experiências
+              digitais com foco em desempenho, usabilidade e identidade.
+            </p>
+          </article>
+
+          <article class="solution-card reveal delay-1">
+            <span class="solution-index">02</span>
+            <div class="solution-icon">⌬</div>
+            <h3>Sistemas e Plataformas</h3>
+            <p>
+              Sistemas personalizados, painéis administrativos
+              e plataformas digitais para organizar e otimizar operações.
+            </p>
+          </article>
+
+          <article class="solution-card reveal delay-2">
+            <span class="solution-index">03</span>
+            <div class="solution-icon">✳</div>
+            <h3>Inteligência Artificial</h3>
+            <p>
+              Aplicações de IA, integração de modelos e ferramentas
+              inteligentes para ampliar capacidades operacionais.
+            </p>
+          </article>
+
+          <article class="solution-card reveal">
+            <span class="solution-index">04</span>
+            <div class="solution-icon">↗</div>
+            <h3>Automação de Processos</h3>
+            <p>
+              Integrações e fluxos automatizados para reduzir
+              tarefas repetitivas e melhorar a eficiência.
+            </p>
+          </article>
+
+          <article class="solution-card reveal delay-1">
+            <span class="solution-index">05</span>
+            <div class="solution-icon">◎</div>
+            <h3>Consultoria Tecnológica</h3>
+            <p>
+              Análise de necessidades, seleção de ferramentas
+              e planejamento de soluções digitais.
+            </p>
+          </article>
+
+          <article class="solution-card reveal delay-2">
+            <span class="solution-index">06</span>
+            <div class="solution-icon">⌁</div>
+            <h3>Projetos Sob Medida</h3>
+            <p>
+              Desenvolvimento personalizado para necessidades
+              específicas, com escopo e funcionalidades definidos.
+            </p>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <div class="faq-item">
-        <button class="faq-question">
-          Os projetos são personalizados?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          Sim. A proposta é entender cada necessidade antes
-          de definir a solução e o escopo do projeto.
+    <!-- SOBRE A PK TECH -->
+
+    <section class="section institutional" id="sobre">
+      <div class="container institutional-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">02 / Sobre a PK Tech</div>
+
+          <h2>
+            Construindo soluções para
+            <span class="gradient-text">um mundo digital.</span>
+          </h2>
+
+          <p class="institutional-copy">
+            A PK Tech atua no desenvolvimento de soluções
+            tecnológicas com foco em aplicações práticas.
+            Nossa proposta é aproximar pessoas, projetos e negócios
+            das possibilidades oferecidas pela tecnologia.
+
+            <br><br>
+
+            Mais do que desenvolver ferramentas, buscamos
+            compreender necessidades e transformá-las em
+            soluções digitais funcionais.
+          </p>
+
+          <a href="#contato" class="btn btn-outline" style="margin-top:30px">
+            Conheça nossas possibilidades
+            <span class="arrow">↗</span>
+          </a>
+
+        </div>
+
+        <div class="institutional-grid-right reveal delay-1">
+
+          <div class="value-card">
+            <div class="value-number">CORE_01</div>
+            <h3>Eficiência</h3>
+            <p>
+              Tecnologia orientada à funcionalidade e à melhoria
+              de processos.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-number">CORE_02</div>
+            <h3>Inovação</h3>
+            <p>
+              Exploração de novas ferramentas e possibilidades
+              tecnológicas.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-number">CORE_03</div>
+            <h3>Estratégia</h3>
+            <p>
+              Decisões técnicas fundamentadas nos objetivos
+              de cada projeto.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-number">CORE_04</div>
+            <h3>Evolução</h3>
+            <p>
+              Soluções estruturadas para acompanhar novas
+              necessidades e desafios.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+
+    <section class="section process" id="processo">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">03 / Metodologia</div>
+
+          <h2>
+            Um processo estruturado.
+            <span class="gradient-text">Resultados consistentes.</span>
+          </h2>
+
+          <p>
+            Cada projeto passa por etapas definidas,
+            da compreensão inicial à entrega da solução.
+          </p>
+        </div>
+
+        <div class="process-grid">
+
+          <article class="process-item reveal">
+            <div class="process-number">STEP_01 / DISCOVERY</div>
+            <h3>Diagnóstico</h3>
+            <p>
+              Identificamos o problema, compreendemos as necessidades
+              e definimos os objetivos do projeto.
+            </p>
+          </article>
+
+          <article class="process-item reveal delay-1">
+            <div class="process-number">STEP_02 / PLANNING</div>
+            <h3>Planejamento</h3>
+            <p>
+              Estruturamos o escopo, as funcionalidades,
+              as tecnologias e as etapas de desenvolvimento.
+            </p>
+          </article>
+
+          <article class="process-item reveal delay-2">
+            <div class="process-number">STEP_03 / DEVELOPMENT</div>
+            <h3>Desenvolvimento</h3>
+            <p>
+              Construímos a solução, implementamos os recursos
+              e realizamos os testes necessários.
+            </p>
+          </article>
+
+          <article class="process-item reveal delay-3">
+            <div class="process-number">STEP_04 / DELIVERY</div>
+            <h3>Entrega</h3>
+            <p>
+              Finalizamos o projeto, validamos sua funcionalidade
+              e orientamos sua utilização.
+            </p>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <div class="faq-item">
-        <button class="faq-question">
-          Como solicitar um orçamento?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          Basta preencher o formulário de contato.
-          A partir das informações iniciais, podemos conversar
-          sobre o projeto e suas possibilidades.
+    <!-- FAQ -->
+
+    <section class="section faq" id="faq">
+      <div class="container faq-grid">
+
+        <div class="faq-heading reveal">
+          <div class="eyebrow">04 / Central de informações</div>
+
+          <h2>
+            Perguntas
+            <span class="gradient-text">frequentes.</span>
+          </h2>
+
+          <p>
+            Informações importantes para entender
+            como funcionam nossos projetos e soluções.
+          </p>
+        </div>
+
+        <div class="faq-list reveal delay-1">
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quais tipos de projetos a PK Tech desenvolve?
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Desenvolvemos projetos de sites, sistemas,
+                plataformas digitais, automações, aplicações
+                de inteligência artificial e soluções personalizadas.
+                A viabilidade depende do escopo de cada projeto.
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Os projetos são personalizados?
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Sim. Cada projeto é avaliado individualmente.
+                As funcionalidades, tecnologias e entregas são
+                definidas de acordo com as necessidades identificadas.
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como funciona a contratação?
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                O primeiro passo é entrar em contato e apresentar
+                sua necessidade. Após uma avaliação inicial,
+                podemos discutir o escopo, os prazos e o orçamento.
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como solicitar um orçamento?
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Utilize o formulário de contato e descreva
+                brevemente seu projeto. Nossa equipe poderá
+                avaliar as informações e dar continuidade
+                à conversa.
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              É possível desenvolver uma ideia do zero?
+              <span class="faq-plus">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Sim. Projetos podem começar a partir de uma ideia
+                ou necessidade ainda não estruturada. A primeira
+                etapa é avaliar sua viabilidade e definir
+                uma proposta de desenvolvimento.
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <div class="faq-item">
-        <button class="faq-question">
-          Como funciona o desenvolvimento?
-          <span>+</span>
-        </button>
-        <div class="faq-answer">
-          Trabalhamos com diagnóstico, planejamento,
-          desenvolvimento e aprimoramento da solução.
-          O processo é definido conforme o escopo de cada projeto.
+    <!-- CONTATO -->
+
+    <section class="section contact" id="contato">
+      <div class="container">
+
+        <div class="contact-box reveal">
+
+          <div>
+
+            <div class="eyebrow">05 / Entre em contato</div>
+
+            <h2>
+              Vamos transformar sua ideia em
+              <span class="gradient-text">um projeto.</span>
+            </h2>
+
+            <p class="contact-copy">
+              Conte-nos o que você precisa desenvolver.
+              Vamos avaliar sua proposta e identificar
+              as possibilidades tecnológicas para seu projeto.
+            </p>
+
+            <div class="contact-info">
+              <span><strong>↗</strong> Atendimento por solicitação</span>
+              <span><strong>⌬</strong> Projetos personalizados</span>
+              <span><strong>◎</strong> Tecnologia aplicada a resultados</span>
+            </div>
+
+          </div>
+
+          <form class="contact-form" id="contactForm">
+
+            <h3 class="form-title">Apresente seu projeto</h3>
+
+            <p class="form-subtitle">
+              Preencha os campos abaixo para iniciar uma conversa.
+            </p>
+
+            <label for="name">Nome completo</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Seu nome"
+              autocomplete="name"
+              maxlength="100"
+              required
+            >
+
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              autocomplete="email"
+              maxlength="150"
+              required
+            >
+
+            <label for="service">Área de interesse</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option>Desenvolvimento Web</option>
+              <option>Sistemas e Plataformas</option>
+              <option>Inteligência Artificial</option>
+              <option>Automação</option>
+              <option>Consultoria Tecnológica</option>
+              <option>Projeto personalizado</option>
+              <option>Outro assunto</option>
+            </select>
+
+            <label for="message">Descreva seu projeto</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Conte um pouco sobre sua ideia ou necessidade..."
+              maxlength="3000"
+              required
+            ></textarea>
+
+            <button type="submit" class="btn btn-primary">
+              Enviar solicitação <span class="arrow">↗</span>
+            </button>
+
+            <p class="form-message" id="formMessage" aria-live="polite"></p>
+
+          </form>
+
         </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="#inicio" class="brand" aria-label="PK Tech - Início">
+            <img id="footerLogo" src="" alt="PK Tech" hidden>
+            <span class="brand-fallback" id="footerFallback">
+              PK<span>TECH</span>
+            </span>
+          </a>
+
+          <p>
+            Tecnologia, desenvolvimento e inovação
+            aplicados à construção de soluções digitais.
+          </p>
+
+        </div>
+
+        <div class="footer-nav">
+
+          <div class="footer-column">
+            <h4>Navegação</h4>
+            <a href="#inicio">Início</a>
+            <a href="#solucoes">Soluções</a>
+            <a href="#sobre">Sobre nós</a>
+            <a href="#processo">Metodologia</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Informações</h4>
+            <a href="#faq">Perguntas frequentes</a>
+            <a href="#contato">Contato</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>
+          © <span id="year"></span> PK Tech. Todos os direitos reservados.
+        </span>
+
+        <span>Technology. Engineering. Innovation.</span>
       </div>
 
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- CONTATO -->
-<section class="contact" id="contato">
-  <div class="container">
+  <!-- ==================================================
+       JAVASCRIPT
+  =================================================== -->
 
-    <div class="contact-box reveal">
+  <script>
 
-      <div>
-        <div class="eyebrow">Vamos começar?</div>
-        <h2>Seu próximo projeto começa aqui.</h2>
+    /* ================================================
+       01. CONFIGURAÇÕES DA MARCA
 
-        <p class="contact-copy">
-          Conte um pouco sobre sua ideia.
-          Vamos conversar sobre como a tecnologia
-          pode ajudar a transformá-la em realidade.
-        </p>
-      </div>
+       Adicione as URLs das imagens abaixo.
+       Se deixar vazio, será exibida a marca em texto.
+    ================================================= */
 
-      <form class="contact-form" id="contactForm">
+    const PK_CONFIG = {
 
-        <label for="name">Seu nome</label>
-        <input type="text" id="name" placeholder="Como podemos chamar você?" required>
+      // LOGO PRINCIPAL DO HEADER
+      headerLogo: "",
 
-        <label for="email">Seu e-mail</label>
-        <input type="email" id="email" placeholder="seu@email.com" required>
+      // LOGO UTILIZADA NO ELEMENTO VISUAL DO HERO
+      heroLogo: "",
 
-        <label for="subject">Sobre o que deseja conversar?</label>
-        <textarea id="subject" placeholder="Conte brevemente sobre seu projeto..." required></textarea>
+      // LOGO DO FOOTER
+      footerLogo: "",
 
-        <button type="submit">Enviar solicitação ↗</button>
+      // E-MAIL QUE RECEBERÁ OS CONTATOS
+      email: "SEU_EMAIL_AQUI"
 
-        <p class="form-message" id="formMessage" aria-live="polite"></p>
+    };
 
-      </form>
 
-    </div>
-  </div>
-</section>
+    /* ================================================
+       02. APLICAÇÃO DAS LOGOS
+    ================================================= */
 
-</main>
+    function configureLogo(imageId, fallbackId, imageUrl) {
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
+      const image = document.getElementById(imageId);
+      const fallback = document.getElementById(fallbackId);
 
-    <div class="footer-top">
+      if (!image || !fallback || !imageUrl.trim()) return;
 
-      <div class="footer-brand">
-        <a href="#inicio" class="logo">PK<span class="tech">TECH</span></a>
-        <p>Tecnologia que transforma possibilidades.</p>
-      </div>
+      image.onload = () => {
+        image.hidden = false;
+        fallback.hidden = true;
+      };
 
-      <div class="footer-links">
-        <a href="#inicio">Início</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
-      </div>
+      image.onerror = () => {
+        image.hidden = true;
+        fallback.hidden = false;
+      };
 
-    </div>
+      image.src = imageUrl;
 
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> PK Tech. Todos os direitos reservados.</span>
-      <span>Tecnologia em movimento.</span>
-    </div>
+    }
 
-  </div>
-</footer>
+    configureLogo(
+      "headerLogo",
+      "headerFallback",
+      PK_CONFIG.headerLogo
+    );
 
-<script>
-// CONFIGURAÇÃO
-// Substitua pelo endereço oficial da empresa.
-const PK_EMAIL = "SEU_EMAIL_AQUI";
+    configureLogo(
+      "heroLogo",
+      "heroFallback",
+      PK_CONFIG.heroLogo
+    );
 
-// MENU MOBILE
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+    configureLogo(
+      "footerLogo",
+      "footerFallback",
+      PK_CONFIG.footerLogo
+    );
 
-menuBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-  menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
-});
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuBtn.textContent = "☰";
-  });
-});
+    /* ================================================
+       03. MENU MOBILE
+    ================================================= */
 
-// FAQ INTERATIVO
-document.querySelectorAll(".faq-question").forEach(button => {
-  button.addEventListener("click", () => {
-    const item = button.parentElement;
-    const wasActive = item.classList.contains("active");
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
-    document.querySelectorAll(".faq-item").forEach(faq => {
-      faq.classList.remove("active");
+    function closeMenu() {
+
+      navLinks.classList.remove("open");
+      menuBtn.textContent = "☰";
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Abrir menu");
+
+    }
+
+    menuBtn.addEventListener("click", () => {
+
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuBtn.textContent = isOpen ? "×" : "☰";
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.setAttribute(
+        "aria-label",
+        isOpen ? "Fechar menu" : "Abrir menu"
+      );
+
     });
 
-    if (!wasActive) item.classList.add("active");
-  });
-});
+    document.querySelectorAll(".nav-links a").forEach(link => {
 
-// ANIMAÇÕES AO ROLAR A PÁGINA
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+      link.addEventListener("click", closeMenu);
+
+    });
+
+    document.addEventListener("click", event => {
+
+      if (
+        !navLinks.contains(event.target) &&
+        !menuBtn.contains(event.target)
+      ) {
+        closeMenu();
+      }
+
+    });
+
+
+    /* ================================================
+       04. FAQ INTERATIVO
+    ================================================= */
+
+    document.querySelectorAll(".faq-question").forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const item = button.closest(".faq-item");
+        const wasActive = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach(faq => {
+
+          faq.classList.remove("active");
+
+          const question = faq.querySelector(".faq-question");
+          question.setAttribute("aria-expanded", "false");
+
+        });
+
+        if (!wasActive) {
+
+          item.classList.add("active");
+          button.setAttribute("aria-expanded", "true");
+
+        }
+
+      });
+
+    });
+
+
+    /* ================================================
+       05. ANIMAÇÕES DE ENTRADA
+    ================================================= */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+
+      const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach(element => {
+
+        observer.observe(element);
+
+      });
+
+    } else {
+
+      revealElements.forEach(element => {
+        element.classList.add("visible");
+      });
+
     }
-  });
-}, { threshold: 0.12 });
 
-document.querySelectorAll(".reveal").forEach(element => {
-  observer.observe(element);
-});
 
-// FORMULÁRIO DE CONTATO
-document.getElementById("contactForm").addEventListener("submit", event => {
-  event.preventDefault();
+    /* ================================================
+       06. FORMULÁRIO DE CONTATO
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subject = document.getElementById("subject").value.trim();
-  const message = document.getElementById("formMessage");
+       Utiliza mailto.
+       Para envio profissional sem depender do aplicativo
+       de e-mail do visitante, será necessário integrar
+       um backend ou serviço de formulários.
+    ================================================= */
 
-  if (!name || !email || !subject) {
-    message.textContent = "Preencha todos os campos.";
-    return;
-  }
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
 
-  if (PK_EMAIL === "SEU_EMAIL_AQUI") {
-    message.textContent =
-      "Formulário pronto. Configure o endereço PK_EMAIL no código para habilitar o envio.";
-    return;
-  }
+    contactForm.addEventListener("submit", event => {
 
-  const body =
-    `Nome: ${name}\nE-mail: ${email}\n\nProjeto:\n${subject}`;
+      event.preventDefault();
 
-  const url =
-    `mailto:${PK_EMAIL}?subject=${encodeURIComponent("Novo contato — PK Tech")}&body=${encodeURIComponent(body)}`;
+      if (!contactForm.reportValidity()) return;
 
-  message.textContent = "Abrindo seu aplicativo de e-mail...";
-  window.location.href = url;
-});
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
 
-// ANO AUTOMÁTICO
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      if (!name || !email || !service || !message) {
+
+        formMessage.textContent = "Preencha todos os campos.";
+        return;
+
+      }
+
+      if (
+        !PK_CONFIG.email ||
+        PK_CONFIG.email === "SEU_EMAIL_AQUI" ||
+        !PK_CONFIG.email.includes("@")
+      ) {
+
+        formMessage.textContent =
+          "O endereço de recebimento ainda não foi configurado.";
+
+        return;
+
+      }
+
+      const subject = "Novo contato pelo site — PK Tech";
+
+      const body = [
+        "NOVO CONTATO — PK TECH",
+        "",
+        `Nome: ${name}`,
+        `E-mail: ${email}`,
+        `Área de interesse: ${service}`,
+        "",
+        "DESCRIÇÃO DO PROJETO:",
+        message
+      ].join("\n");
+
+      const mailto =
+        `mailto:${PK_CONFIG.email}` +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(body)}`;
+
+      formMessage.textContent =
+        "Abrindo o aplicativo de e-mail. Confirme o envio por lá.";
+
+      window.location.href = mailto;
+
+    });
+
+
+    /* ================================================
+       07. ANO AUTOMÁTICO
+    ================================================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* ================================================
+       08. FECHAMENTO DE MENU AO REDIMENSIONAR
+    ================================================= */
+
+    window.addEventListener("resize", () => {
+
+      if (window.innerWidth > 850) {
+        closeMenu();
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
